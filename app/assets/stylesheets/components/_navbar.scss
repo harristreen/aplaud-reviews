@@ -1,0 +1,55 @@
+.navbar {
+  margin: 0px;
+  height: auto;
+  background: $primarygreen;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .navbar-collapse {
+  flex-grow: 0;
+}
+
+#logo {
+  width: 70px;
+  margin: 20px;
+}
+
+.navbar-right-container {
+margin-right: 20px;
+}
+
+.navbar-list {
+  align-items: center;
+
+  .dropdown-menu {
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    width: 20vw;
+  }
+
+}
+
+.hamburger {
+  display: none; // Hide initially
+}
+
+@media (max-width: 768px) {
+  // Show the hamburger icon on mobile devices
+  .nav-item {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+
+    i {
+      font-size: x-large;
+      margin-right: 10px;
+    }
+  }
+}

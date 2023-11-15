@@ -1,0 +1,11 @@
+<div class="container-fluid navbar">
+  <%= link_to "/" do %>
+    <%= image_tag "laud-logo-test.png", id: "logo" %>
+  <% end %>
+  <div class='navbar-right-container'>
+    <%= button_to 'Login', '/auth/auth0', method: :post, data: { turbo: 'false' }, class: 'btn-primary', id: 'qsLoginBtn' unless session[:userinfo].present? %>
+    <% if session[:userinfo] %>
+      <%= button_to 'Logout', 'auth/logout', method: :get, data: { turbo: 'false' }, class: 'btn-primary' %>
+    <% end %>
+  </div>
+</div>
