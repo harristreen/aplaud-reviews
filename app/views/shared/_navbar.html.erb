@@ -1,11 +1,30 @@
-<div class="container-fluid navbar">
+<div class="container-fluid navbar" data-controller="hamburger">
   <%= link_to "/" do %>
-    <%= image_tag "laud-logo-test.png", id: "logo" %>
+    <%= image_tag "laud-logo.png", id: "logo" %>
   <% end %>
   <div class='navbar-right-container'>
-    <%= button_to 'Login', '/auth/auth0', method: :post, data: { turbo: 'false' }, class: 'btn-primary', id: 'qsLoginBtn' unless session[:userinfo].present? %>
-    <% if session[:userinfo] %>
-      <%= button_to 'Logout', 'auth/logout', method: :get, data: { turbo: 'false' }, class: 'btn-primary' %>
-    <% end %>
+    <nav class="non-mobile-nav">
+      <%= link_to '<i class="fa-solid fa-pen"></i><span> Review</span>'.html_safe, root_path %>
+      <%= link_to '<i class="fa-solid fa-bookmark"></i><span> Plan</span>'.html_safe, root_path %>
+      <%= button_to 'Sign in', '/auth/auth0', method: :post, data: { turbo: 'false' }, class: 'btn-primary-small', id: 'qsLoginBtn' unless session[:userinfo].present? %>
+      <% if session[:userinfo] %>
+          <%= button_to 'Log out', '/auth/logout', method: :get, data: { turbo: 'false' }, class: 'btn-primary-small' %>
+      <% end %>
+    </nav>
+    <button class="hamburger" data-hamburger-target="hamburger"  data-action="click->hamburger#fire">
+      <div class="bar"></div>
+    </button>
   </div>
+  <nav class="mobile-nav" data-hamburger-target="mobileNav">
+    <div class="mobile-nav-top-login">
+      <%= button_to 'Sign in', '/auth/auth0', method: :post, data: { turbo: 'false' }, class: 'btn-primary-large', id: 'qsLoginBtn' unless session[:userinfo].present? %>
+      <% if session[:userinfo] %>
+        <%= button_to 'Log out', '/auth/logout', method: :get, data: { turbo: 'false' }, class: 'btn-primary-large' %>
+      <% end %>
+    </div>
+    <div class="mobile-nav-links">
+      <%= link_to "Review", root_path %>
+      <%= link_to "Plan", root_path %>
+    </div>
+  </nav>
 </div>

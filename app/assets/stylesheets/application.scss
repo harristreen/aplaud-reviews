@@ -7,3 +7,15 @@
 
 // Your CSS partials
 @import "components/index";
+
+
+
+body {
+  margin: 0px;
+  font-family: $main-font;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: black;
+}

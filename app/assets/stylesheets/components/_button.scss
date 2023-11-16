@@ -1,8 +1,19 @@
-.btn-primary {
+.btn-primary-large {
   background: #1641CD;
   color: white;
   border: none;
   border-radius: 50px;
-  width: 120px;
-  padding: 14px 8px;
+  width: 180px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.btn-primary-small {
+  cursor: pointer;
+  background: #1641CD;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  width: 80px;
+  height: 30px;
 }

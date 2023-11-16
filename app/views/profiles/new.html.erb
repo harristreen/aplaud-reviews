@@ -1,0 +1,17 @@
+  <div class="form">
+    <%= simple_form_for(@profile) do |f| %>
+      <%= f.input :first_name,
+                  required: true,
+                  label: false,
+                  placeholder: session[:userinfo]['given_name'],
+                  autofocus: true,
+                  input_html: { autocomplete: "first_name" }%>
+      <%= f.input :last_name,
+                  required: true,
+                  label: false,
+                  placeholder: session[:userinfo]['family_name'],
+                  autofocus: true,
+                  input_html: { autocomplete: "last_name" }%>
+      <%= f.submit "Submit", class: "btn-primary-large" %>
+    <% end %>
+  </div>

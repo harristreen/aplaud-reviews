@@ -1,6 +1,6 @@
 .navbar {
   margin: 0px;
-  height: auto;
+  height: 70px;
   background: $primarygreen;
   display: flex;
   flex-direction: row;
@@ -14,11 +14,16 @@
 
 #logo {
   width: 70px;
-  margin: 20px;
+  margin: 10px 30px;
 }
 
 .navbar-right-container {
-margin-right: 20px;
+  margin-right: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 20px;
 }
 
 .navbar-list {
@@ -33,23 +38,105 @@ margin-right: 20px;
 
 }
 
+.non-mobile-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  a {
+    padding-right: 40px;
+    font-weight: 600;
+  }
+
+}
+
 .hamburger {
   display: none; // Hide initially
 }
 
+.mobile-nav {
+  display: none;
+}
+
 @media (max-width: 768px) {
   // Show the hamburger icon on mobile devices
-  .nav-item {
+
+  .non-mobile-nav {
     display: none;
   }
 
   .hamburger {
+    position: relative;
     display: block;
+    width: 50px;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
     cursor: pointer;
+  }
 
-    i {
-      font-size: x-large;
-      margin-right: 10px;
+  .hamburger .bar, .hamburger:after, .hamburger:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 5px;
+      background-color: $primaryblue;
+      margin: 6px 0px;
+      transition: 0.4s;
     }
+
+
+  .hamburger.is-active:before {
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .hamburger.is-active:after {
+    transform: rotate(45deg) translate(-9px, -7px);
+  }
+
+  .hamburger.is-active .bar {
+    opacity: 0;
+  }
+
+  .mobile-nav{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 70%;
+    height: 99vh;
+    display: block;
+    text-align: right;
+    z-index: 98;
+    background-color: white;
+    border: 1px solid #F1F1F2;
+    transition: 0.4s;
+
+    .mobile-nav-top-login {
+      height: 69px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #F1F1F2 ;
+    }
+
+    .mobile-nav-links {
+      padding: 20px;
+    }
+  }
+
+  .mobile-nav.is-active {
+    position: fixed;
+    top: 0;
+    left: 29.5%;
+    width: 70%;
+    height: 99vh;
+    display: block;
+    text-align: right;
+    z-index: 98;
+    background-color: white;
+    border: 1px solid #F1F1F2;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
   }
 }
