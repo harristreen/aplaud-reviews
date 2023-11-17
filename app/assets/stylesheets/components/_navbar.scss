@@ -109,7 +109,7 @@
     text-align: right;
     z-index: 98;
     background-color: white;
-    border: 1px solid #F1F1F2;
+    border: 1px solid $borderlightgrey;
     transition: 0.4s;
 
     .mobile-nav-top-login {
@@ -118,7 +118,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid #F1F1F2 ;
+      border-bottom: 1px solid $borderlightgrey ;
     }
 
     .mobile-nav-links {
@@ -136,7 +136,7 @@
     text-align: right;
     z-index: 98;
     background-color: white;
-    border: 1px solid #F1F1F2;
+    border: 1px solid $borderlightgrey;
     box-shadow: 0 0 4px rgba(0,0,0,0.2);
   }
 }

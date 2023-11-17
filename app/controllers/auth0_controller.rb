@@ -6,9 +6,9 @@ class Auth0Controller < ApplicationController
     # Refer to https://github.com/auth0/omniauth-auth0/blob/master/EXAMPLES.md#example-of-the-resulting-authentication-hash for complete information on 'omniauth.auth' contents.
     auth_info = request.env['omniauth.auth']
     session[:userinfo] = auth_info['extra']['raw_info']
-    sid = session[:userinfo]['sid']
+    @aud = session[:userinfo]['aud']
     # Redirect to the URL you want after successful auth
-    if profile_check(sid)
+    if profile_check(aud)
       redirect_to '/'
     else
       redirect_to '/profiles/new'
@@ -36,8 +36,8 @@ class Auth0Controller < ApplicationController
     URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: request_params.to_query).to_s
   end
 
-  def profile_check(sid)
-    if Profile.find_by(user_id: sid)
+  def profile_check(aud)
+    if Profile.find_by(user_id: aud)
       true
     else
       false

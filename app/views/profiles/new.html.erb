@@ -1,17 +1,33 @@
+ <div class="form-container">
   <div class="form">
+    <h2>Create Profile</h2>
     <%= simple_form_for(@profile) do |f| %>
       <%= f.input :first_name,
                   required: true,
                   label: false,
                   placeholder: session[:userinfo]['given_name'],
                   autofocus: true,
-                  input_html: { autocomplete: "first_name" }%>
+                  input_html: { class: "form-input-line", autocomplete: "first_name" }%>
       <%= f.input :last_name,
                   required: true,
                   label: false,
                   placeholder: session[:userinfo]['family_name'],
                   autofocus: true,
-                  input_html: { autocomplete: "last_name" }%>
-      <%= f.submit "Submit", class: "btn-primary-large" %>
+                  input_html: { class: "form-input-line", autocomplete: "last_name" }%>
+      <%= f.input :location,
+                  required: true,
+                  label: false,
+                  placeholder: 'City or town',
+                  autofocus: true,
+                  input_html: { class: "form-input-line", autocomplete: "City or town" }%>
+      <%= f.input :dietary_preferences,
+                  class: 'checkbox-grid',
+                  as: :check_boxes,
+                  label: "Dietary requirements or preferences",
+                  collection: @dietary_requirements %>
+      <div class="form-button-container">
+        <%= f.submit "Submit", class: "btn-primary-large" %>
+      </div>
     <% end %>
   </div>
+</div>

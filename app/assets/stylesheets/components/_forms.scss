@@ -1,0 +1,53 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 50%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid $borderlightgrey;
+  margin: 20px 0px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  font-size: 12px;
+}
+
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  border: 1px solid $borderlightgrey;
+  margin: 20px 0;
+
+  .form-check-label {
+    margin-left: 5px;
+  }
+}
+
+.form-input-line {
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid $borderlightgrey;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.form-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .form {
+    width: 80%;
+  }
+
+  fieldset {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+
+}
