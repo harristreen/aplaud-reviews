@@ -8,6 +8,7 @@ gem "simple_form"
 gem 'omniauth-auth0', '~> 3.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0' # prevents forged authentication requests
 gem "font-awesome-sass", "~> 6.1"
+gem "cloudinary"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
