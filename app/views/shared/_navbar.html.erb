@@ -4,8 +4,6 @@
   <% end %>
   <div class='navbar-right-container'>
     <nav class="non-mobile-nav">
-      <%= link_to '<i class="fa-solid fa-pen"></i><span> Review</span>'.html_safe, root_path %>
-      <%= link_to '<i class="fa-solid fa-bookmark"></i><span> Plan</span>'.html_safe, root_path %>
       <%= button_to 'Sign in', '/auth/auth0', method: :post, data: { turbo: 'false' }, class: 'btn-primary-small', id: 'qsLoginBtn' unless session[:userinfo].present? %>
       <% if session[:userinfo] %>
           <%= button_to 'Log out', '/auth/logout', method: :get, data: { turbo: 'false' }, class: 'btn-primary-small' %>

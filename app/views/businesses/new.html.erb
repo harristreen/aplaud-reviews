@@ -1,0 +1,39 @@
+ <div class="form-container">
+  <div class="form">
+    <h2>Create Business</h2>
+    <%= simple_form_for(@business) do |f| %>
+      <%= f.input :name,
+                  required: true,
+                  label: false,
+                  placeholder: 'Business name',
+                  autofocus: true,
+                  input_html: { class: "form-input-line", autocomplete: "name" }%>
+      <%= f.input :location,
+                  required: true,
+                  label: false,
+                  placeholder: 'Street name or District',
+                  autofocus: true,
+                  input_html: { class: "form-input-line", autocomplete: "location" }%>
+      <%= f.input :address,
+                  required: true,
+                  label: false,
+                  placeholder: 'autofill with Geocoder',
+                  autofocus: true,
+                  input_html: { class: "form-input-line", autocomplete: "address" }%>
+      <%= f.input :business_type,
+                  label: false,
+                  prompt: 'Business type',
+                  collection: @business_types,
+                  autofocus: true,
+                  input_html: { autocomplete: "business_type" }%>
+      <%= f.input :user_assigned,
+                  as: :radio_buttons,
+                  label: 'Are you the business owner or admin?',
+                  autofocus: true,
+                  input_html: { autocomplete: "user_assigned?" }%>
+      <div class="form-button-container">
+        <%= f.submit "Submit", class: "btn-primary-large" %>
+      </div>
+    <% end %>
+  </div>
+</div>

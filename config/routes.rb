@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   # Profile routes
-  resources :profiles
+  resources :users, only: %i[new create]
+
+  # Business routes
+  resources :businesses, only: %i[new create]
+
   # auth0 login routes
   get '/auth/auth0/callback' => 'auth0#callback'
   get '/auth/failure' => 'auth0#failure'

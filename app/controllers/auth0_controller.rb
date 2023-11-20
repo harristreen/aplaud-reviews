@@ -8,10 +8,10 @@ class Auth0Controller < ApplicationController
     session[:userinfo] = auth_info['extra']['raw_info']
     @aud = session[:userinfo]['aud']
     # Redirect to the URL you want after successful auth
-    if profile_check(aud)
+    if user_check(@aud)
       redirect_to '/'
     else
-      redirect_to '/profiles/new'
+      redirect_to '/users/new'
     end
   end
 
@@ -36,8 +36,8 @@ class Auth0Controller < ApplicationController
     URI::HTTPS.build(host: AUTH0_CONFIG['auth0_domain'], path: '/v2/logout', query: request_params.to_query).to_s
   end
 
-  def profile_check(aud)
-    if Profile.find_by(user_id: aud)
+  def user_check(aud)
+    if User.find_by(auth0_id: aud)
       true
     else
       false
